@@ -19,6 +19,6 @@
         "vue-loader": "^16.8.3"
     },
     "dependencies": {
-        "maska": "^2.1.9"
+        "maska": "^3.0.0"
     }
 }
