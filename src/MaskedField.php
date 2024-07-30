@@ -22,8 +22,13 @@ class MaskedField extends Field
      * @param string $mask
      * @return $this
      */
+    public function maskOptions(array $maskOptions = [])
+    {
+        return $this->withMeta(['maskOptions' => $maskOptions]);
+    }
+
     public function mask(string $mask = '')
     {
-        return $this->withMeta(['mask' => $mask]);
+        return $this->maskOptions(['mask' => $mask]);
     }
 }
