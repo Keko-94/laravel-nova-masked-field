@@ -7,15 +7,14 @@
     >
         <template #field>
             <input
-                :id="currentField.attribute"
+                :id="currentField.uniqueKey"
                 type="text"
                 class="w-full form-control form-input form-input-bordered"
                 :class="errorClasses"
-                :placeholder="currentField.name"
+                :placeholder="currentField.placeholder"
                 v-model="value"
-                v-maska
-                :data-maska="mask"
-                data-maska-eager
+                v-maska="maskOptions"
+                @maska="handleChange"
             />
         </template>
     </DefaultField>
@@ -23,7 +22,7 @@
 
 <script>
 import {DependentFormField, HandlesValidationErrors} from 'laravel-nova'
-import {vMaska} from 'maska'
+import { vMaska } from "maska/vue"
 
 export default {
     mixins: [DependentFormField, HandlesValidationErrors],
@@ -49,8 +48,8 @@ export default {
     },
 
     computed: {
-        mask() {
-            return this.currentField.mask;
+        maskOptions() {
+            return this.currentField.maskOptions;
         },
     },
 }
