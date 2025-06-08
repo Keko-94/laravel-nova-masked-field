@@ -12,6 +12,8 @@
                 class="w-full form-control form-input form-input-bordered"
                 :class="errorClasses"
                 :placeholder="currentField.placeholder"
+                :readonly="currentField.readonly"
+                :disabled="currentField.readonly"
                 v-model="value"
                 v-maska="maskOptions"
                 @maska="handleChange"
